@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <TableRow
+        android:id="@+id/TableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin">
+
+        <TextView
+            android:id="@+id/upperBodyTextViewLabel"
+            style="@style/header_style"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/upper_body_label" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="@dimen/text_margin"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:id="@+id/upperBodyMovementResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/upperBodySpeedResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow3"
+        style="@style/text_style">
+
+        <TextView
+            android:id="@+id/upperBodyMovementLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movement_label" />
+
+        <TextView
+            android:id="@+id/upperBodySpeedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/speed_label" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/text_margin"
+        android:paddingTop="@dimen/fab_margin">
+
+        <TextView
+            android:id="@+id/hipsTextViewLabel"
+            style="@style/header_style"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/hips_label" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="@dimen/text_margin"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:id="@+id/hipMovementResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/hipSpeedResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow6"
+        style="@style/text_style">
+
+        <TextView
+            android:id="@+id/hipMovementLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movement_label" />
+
+        <TextView
+            android:id="@+id/hipSpeedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/speed_label" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/text_margin">
+
+        <TextView
+            android:id="@+id/travelStepsTextViewLabel"
+            style="@style/header_style"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingTop="@dimen/default_margin"
+            android:text="@string/travel_steps_label" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TabelRow8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="@dimen/text_margin"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:id="@+id/travelStepResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/travelSpeedResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow9"
+        style="@style/text_style">
+
+        <TextView
+            android:id="@+id/travelStepLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movement_label" />
+
+        <TextView
+            android:id="@+id/travelSpeedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/speed_label" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:gravity="center_vertical|center_horizontal">
+
+        <Button
+            android:id="@+id/generateLayersButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:onClick="generateLayers"
+            android:text="@string/generate_layers_button" />
+    </TableRow>
+</TableLayout>

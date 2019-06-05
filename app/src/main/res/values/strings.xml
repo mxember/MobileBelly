@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MobileBelly</string>
+    <string name="action_settings">Settings</string>
+    <string name="upper_body_text">Upper Body</string>
+    <string name="hips_text">Hips</string>
+    <string name="travel_text">Travel Step</string>
+    <string name="generate_layers_text">Generate Layers</string>
+    <string name="upper_body_label">Upper Body</string>
+    <string name="movement_label">Movement</string>
+    <string name="speed_label">Speed</string>
+    <string name="hips_label">Hips</string>
+    <string name="generate_layers_button">Generate Layers</string>
+    <string name="travel_steps_label">Travel Steps</string>
+</resources>
