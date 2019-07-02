@@ -7,4 +7,11 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/view_saved_layers"
+        android:orderInCategory="100"
+        android:title="@string/view_saved_layers_settings"
+        app:showAsAction="never" />
+
 </menu>

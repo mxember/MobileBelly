@@ -2,15 +2,19 @@ package kamrah.tattooedbellydancer.com.mobilebelly;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView hipsSpeedResult;
     private TextView travelMovementSpeedResult;
 
+
+
     //Button for generating layers
     private Button generateLayersButton;
 
@@ -44,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /**
+
+        //When FAB is pressed, launch SavedLayers activity to see Saved Layers
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-         **/
 
+
+        //Text Views to show results of random generation of layers
         upperBodyMovementResult = (TextView) findViewById(R.id.upperBodyMovementResult);
         hipsMovementResult = (TextView) findViewById(R.id.hipMovementResult);
         travelMovementResult = (TextView) findViewById(R.id.travelStepResult);
@@ -69,14 +77,36 @@ public class MainActivity extends AppCompatActivity {
         generateLayersButton = findViewById(R.id.generateLayersButton);
 
 
+
     }
 
     //When FAB is pressed, it will launch the Saved Layers Activity, a RecyclerView of layers saved
     private void launchSavedLayers() {
 
-        Intent intent = new Intent(this, SavedLayers.class);
+        //Bundle for holding layer information to be passed to SavedLayers Activity
+        Bundle bundle = new Bundle();
 
-        startActivity(intent);
+        //Get strings of movements generated
+        String chestMovement = upperBodyMovementResult.getText().toString();
+        String chestTiming = upperBodySpeedResult.getText().toString();
+        String hipMovement = hipsMovementResult.getText().toString();
+        String hipTiming = hipsSpeedResult.getText().toString();
+        String travelMovement = travelMovementResult.getText().toString();
+        String travelTiming = travelMovementSpeedResult.getText().toString();
+
+        //Create string of all layers to be supplied to bundle
+        String savedLayer = chestMovement + " " + chestTiming + "\n" + hipMovement + " " +
+                hipTiming + "\n" + travelMovement + " " + travelTiming + "\n";
+
+
+        //Add Layer to bundle with keyword Layer
+        bundle.putString("Layer", savedLayer);
+
+        //Create intent to start SavedLayers and send new layer to activity
+        Intent intent = new Intent(this, SavedLayers.class);
+        intent.putExtras(bundle);
+
+        startActivity(intent, bundle);
 
     }
 
@@ -96,9 +126,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.view_saved_layers) {
+            Intent intent = new Intent(this, SavedLayers.class);
+            startActivity(intent);
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }

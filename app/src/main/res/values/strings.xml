@@ -11,4 +11,6 @@
     <string name="hips_label">Hips</string>
     <string name="generate_layers_button">Generate Layers</string>
     <string name="travel_steps_label">Travel Steps</string>
+    <string name="view_saved_layers_settings">View Saved Layers</string>
+    <string name="clear_all_data">Delete All</string>
 </resources>

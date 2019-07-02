@@ -8,14 +8,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
- * LayerList Adapter class creates the Recycler View for saving layers (future feature)
+ * LayerList Adapter class creates the Recycler View for saving layers
  */
 public class LayerListAdapter extends RecyclerView.Adapter<LayerListAdapter.LayerViewHolder> {
 
     //Member variables
-    private final LinkedList<String> mLayerList;
+    private List<Layer> mLayerList;
     private final LayoutInflater mInflater;
 
     //Inner class to hold layer view, the view of each individual saved item
@@ -35,7 +36,7 @@ public class LayerListAdapter extends RecyclerView.Adapter<LayerListAdapter.Laye
     }
 
     //Constructor for LayerListAdapter
-    public LayerListAdapter(Context context, LinkedList<String> layerList) {
+    public LayerListAdapter(Context context, List<Layer> layerList) {
         mInflater = LayoutInflater.from(context);
         this.mLayerList = layerList;
     }
@@ -50,13 +51,30 @@ public class LayerListAdapter extends RecyclerView.Adapter<LayerListAdapter.Laye
     //OnBindViewHolder to bind view holder to RecyclerView
     @Override
     public void onBindViewHolder(LayerListAdapter.LayerViewHolder holder, int position) {
-        String mCurrent = mLayerList.get(position);
-        holder.layerItemView.setText(mCurrent);
+        if (mLayerList != null) {
+            Layer current = mLayerList.get(position);
+            holder.layerItemView.setText(current.getLayer());
+        } else {
+            holder.layerItemView.setText("No Layer");
+        }
     }
 
     //Get the number of items in the view
     @Override
     public int getItemCount() {
-        return mLayerList.size();
+        if (mLayerList != null)
+            return mLayerList.size();
+        else return 0;
+    }
+
+    //Populate database list of layers
+    void setLayers(List<Layer> layers) {
+        mLayerList = layers;
+        notifyDataSetChanged();
+    }
+
+    //Get position of layer selected
+    public Layer getLayerAtPosition (int position) {
+        return mLayerList.get(position);
     }
 }
